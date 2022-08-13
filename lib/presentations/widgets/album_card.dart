@@ -1,4 +1,3 @@
-import 'package:cypress_album/data/model/photos_model.dart';
 import 'package:flutter/material.dart';
 
 class AlbumCard extends StatelessWidget {
@@ -21,13 +20,17 @@ class AlbumCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
-            image ?? "http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+            image ??
+                "http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
             width: size,
             height: size,
             fit: BoxFit.scaleDown,
           ),
           const SizedBox(height: 10),
-          Text(albumTitle ?? " ", style: const TextStyle(overflow: TextOverflow.ellipsis),),
+          Text(
+            albumTitle ?? " ",
+            style: const TextStyle(overflow: TextOverflow.ellipsis),
+          ),
         ],
       ),
     );

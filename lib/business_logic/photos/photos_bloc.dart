@@ -1,9 +1,10 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../data/model/photos_model.dart';
 import '../../data/repositories/photos_repo.dart';
-import '../../utils/storageutil.dart';
 
 part 'photos_event.dart';
 
@@ -18,6 +19,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
         emit(PhotosLoadingState());
         try {
           final photos = await photosRepository.fetchPhotosData(event.albumId);
+          log("get photos");
           emit(PhotosLoadedState(photos: photos));
         } catch (e) {
           emit(PhotosErrorState(error: e.toString()));
